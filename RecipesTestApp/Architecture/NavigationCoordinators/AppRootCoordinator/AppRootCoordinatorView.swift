@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct AppRootCoordinatorView: View {
-    @ObservedObject var coordinator: AppRootCoordinatorViewModel
+    @Bindable var coordinator: AppRootCoordinatorViewModel
     
     var body: some View {
-        Text("App Root Coordinator View")
+        CoordinatorNavigationStack(path: self.coordinator.path) {
+            RecipesListView(viewModel: self.coordinator.recipesListViewModel)
+        }
     }
 }

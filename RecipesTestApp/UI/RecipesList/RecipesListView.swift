@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecipesListView: View {
-    @ObservedObject var viewModel: RecipesListViewModel
+    @Bindable var viewModel: RecipesListViewModel
     
     var body: some View {
         Text("Recipes List View")

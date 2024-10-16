@@ -7,11 +7,14 @@
 
 import SwiftUI
 
+fileprivate let appAssembly = AppAssembler()
+
 @main
 struct RecipesTestAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppRootCoordinatorView(
+                coordinator: appAssembly.resolver.resolve(AppRootCoordinatorViewModel.self)!)
         }
     }
 }

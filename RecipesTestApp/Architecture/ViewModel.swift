@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ViewModel: ObservableObject, Identifiable, Hashable, Equatable {}
+protocol ViewModel: AnyObject, Identifiable, Hashable, Equatable {}
 
 extension ViewModel {
     static func ==(lhs: Self, rhs: Self) -> Bool {

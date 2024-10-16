@@ -25,6 +25,7 @@
 		6FE236172CC03E1700D79206 /* AppRootCoordinatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE236162CC03E1700D79206 /* AppRootCoordinatorViewModel.swift */; };
 		6FE236192CC03EDB00D79206 /* RecipesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE236182CC03EDB00D79206 /* RecipesListView.swift */; };
 		6FE2361B2CC03EEB00D79206 /* RecipesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2361A2CC03EEB00D79206 /* RecipesListViewModel.swift */; };
+		6FE2361D2CC0418500D79206 /* CoordinatorNavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2361C2CC0418500D79206 /* CoordinatorNavigationStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		6FE236162CC03E1700D79206 /* AppRootCoordinatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootCoordinatorViewModel.swift; sourceTree = "<group>"; };
 		6FE236182CC03EDB00D79206 /* RecipesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesListView.swift; sourceTree = "<group>"; };
 		6FE2361A2CC03EEB00D79206 /* RecipesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesListViewModel.swift; sourceTree = "<group>"; };
+		6FE2361C2CC0418500D79206 /* CoordinatorNavigationStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorNavigationStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 		6FE236052CC03BCD00D79206 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				6FE2361C2CC0418500D79206 /* CoordinatorNavigationStack.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				6FE2360D2CC03D2000D79206 /* NavigationCoordinatorsAssembly.swift in Sources */,
 				6FE236172CC03E1700D79206 /* AppRootCoordinatorViewModel.swift in Sources */,
 				6FE2360B2CC03CD300D79206 /* AppAssembler.swift in Sources */,
+				6FE2361D2CC0418500D79206 /* CoordinatorNavigationStack.swift in Sources */,
 				6FE236132CC03D8A00D79206 /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -550,7 +554,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -580,7 +584,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

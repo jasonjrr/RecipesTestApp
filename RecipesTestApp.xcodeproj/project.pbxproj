@@ -25,7 +25,10 @@
 		6FE236172CC03E1700D79206 /* AppRootCoordinatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE236162CC03E1700D79206 /* AppRootCoordinatorViewModel.swift */; };
 		6FE236192CC03EDB00D79206 /* RecipesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE236182CC03EDB00D79206 /* RecipesListView.swift */; };
 		6FE2361B2CC03EEB00D79206 /* RecipesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2361A2CC03EEB00D79206 /* RecipesListViewModel.swift */; };
-		6FE2361D2CC0418500D79206 /* CoordinatorNavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2361C2CC0418500D79206 /* CoordinatorNavigationStack.swift */; };
+		6FE236212CC045A300D79206 /* SUIFNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 6FE236202CC045A300D79206 /* SUIFNetworking */; };
+		6FE236232CC045A300D79206 /* SUIFTelemetry in Frameworks */ = {isa = PBXBuildFile; productRef = 6FE236222CC045A300D79206 /* SUIFTelemetry */; };
+		6FE236252CC045A300D79206 /* SwiftUIDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 6FE236242CC045A300D79206 /* SwiftUIDesignSystem */; };
+		6FE236272CC045A300D79206 /* SwiftUIFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 6FE236262CC045A300D79206 /* SwiftUIFoundation */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +68,6 @@
 		6FE236162CC03E1700D79206 /* AppRootCoordinatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootCoordinatorViewModel.swift; sourceTree = "<group>"; };
 		6FE236182CC03EDB00D79206 /* RecipesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesListView.swift; sourceTree = "<group>"; };
 		6FE2361A2CC03EEB00D79206 /* RecipesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesListViewModel.swift; sourceTree = "<group>"; };
-		6FE2361C2CC0418500D79206 /* CoordinatorNavigationStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorNavigationStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,10 @@
 			files = (
 				6FE236002CC03B3F00D79206 /* CombineExt in Frameworks */,
 				6FE235FD2CC03B2B00D79206 /* Swinject in Frameworks */,
+				6FE236252CC045A300D79206 /* SwiftUIDesignSystem in Frameworks */,
+				6FE236272CC045A300D79206 /* SwiftUIFoundation in Frameworks */,
+				6FE236212CC045A300D79206 /* SUIFNetworking in Frameworks */,
+				6FE236232CC045A300D79206 /* SUIFTelemetry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +182,7 @@
 		6FE236032CC03BBC00D79206 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				6FE236282CC0463D00D79206 /* RecipesService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -191,7 +198,6 @@
 		6FE236052CC03BCD00D79206 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				6FE2361C2CC0418500D79206 /* CoordinatorNavigationStack.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -233,6 +239,13 @@
 			path = AppRootCoordinator;
 			sourceTree = "<group>";
 		};
+		6FE236282CC0463D00D79206 /* RecipesService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RecipesService;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -252,6 +265,10 @@
 			packageProductDependencies = (
 				6FE235FC2CC03B2B00D79206 /* Swinject */,
 				6FE235FF2CC03B3F00D79206 /* CombineExt */,
+				6FE236202CC045A300D79206 /* SUIFNetworking */,
+				6FE236222CC045A300D79206 /* SUIFTelemetry */,
+				6FE236242CC045A300D79206 /* SwiftUIDesignSystem */,
+				6FE236262CC045A300D79206 /* SwiftUIFoundation */,
 			);
 			productName = RecipesTestApp;
 			productReference = 6FCAC0BA2CC039DA0001B41D /* RecipesTestApp.app */;
@@ -328,6 +345,7 @@
 			packageReferences = (
 				6FE235FB2CC03B2B00D79206 /* XCRemoteSwiftPackageReference "Swinject" */,
 				6FE235FE2CC03B3F00D79206 /* XCRemoteSwiftPackageReference "CombineExt" */,
+				6FE2361F2CC045A300D79206 /* XCRemoteSwiftPackageReference "SwiftUI" */,
 			);
 			productRefGroup = 6FCAC0BB2CC039DA0001B41D /* Products */;
 			projectDirPath = "";
@@ -381,7 +399,6 @@
 				6FE2360D2CC03D2000D79206 /* NavigationCoordinatorsAssembly.swift in Sources */,
 				6FE236172CC03E1700D79206 /* AppRootCoordinatorViewModel.swift in Sources */,
 				6FE2360B2CC03CD300D79206 /* AppAssembler.swift in Sources */,
-				6FE2361D2CC0418500D79206 /* CoordinatorNavigationStack.swift in Sources */,
 				6FE236132CC03D8A00D79206 /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -732,6 +749,14 @@
 				version = 1.8.1;
 			};
 		};
+		6FE2361F2CC045A300D79206 /* XCRemoteSwiftPackageReference "SwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jasonjrr/SwiftUI.Foundations";
+			requirement = {
+				kind = revision;
+				revision = b5e698fb54b78092aa5a46d6e4d8f7079eec2537;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -744,6 +769,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6FE235FE2CC03B3F00D79206 /* XCRemoteSwiftPackageReference "CombineExt" */;
 			productName = CombineExt;
+		};
+		6FE236202CC045A300D79206 /* SUIFNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6FE2361F2CC045A300D79206 /* XCRemoteSwiftPackageReference "SwiftUI" */;
+			productName = SUIFNetworking;
+		};
+		6FE236222CC045A300D79206 /* SUIFTelemetry */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6FE2361F2CC045A300D79206 /* XCRemoteSwiftPackageReference "SwiftUI" */;
+			productName = SUIFTelemetry;
+		};
+		6FE236242CC045A300D79206 /* SwiftUIDesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6FE2361F2CC045A300D79206 /* XCRemoteSwiftPackageReference "SwiftUI" */;
+			productName = SwiftUIDesignSystem;
+		};
+		6FE236262CC045A300D79206 /* SwiftUIFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6FE2361F2CC045A300D79206 /* XCRemoteSwiftPackageReference "SwiftUI" */;
+			productName = SwiftUIFoundation;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

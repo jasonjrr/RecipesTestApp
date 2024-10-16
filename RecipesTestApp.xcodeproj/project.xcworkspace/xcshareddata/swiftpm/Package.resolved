@@ -1,5 +1,5 @@
 {
-  "originHash" : "af6b6a864c5776b94b107285609ae8ff5e73d479a3853d647be6f0aed91ffce2",
+  "originHash" : "92ecd0a3e06cdc9f195e1b68d69abcbf2b5a8237eda90fd7397b4be79c3018a0",
   "pins" : [
     {
       "identity" : "combineext",
@@ -8,6 +8,14 @@
       "state" : {
         "revision" : "d7b896fa9ca8b47fa7bcde6b43ef9b70bf8c1f56",
         "version" : "1.8.1"
+      }
+    },
+    {
+      "identity" : "swiftui.foundations",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jasonjrr/SwiftUI.Foundations",
+      "state" : {
+        "revision" : "b5e698fb54b78092aa5a46d6e4d8f7079eec2537"
       }
     },
     {

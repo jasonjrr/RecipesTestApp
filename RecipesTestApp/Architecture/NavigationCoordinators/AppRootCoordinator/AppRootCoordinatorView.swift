@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIFoundation
 
 struct AppRootCoordinatorView: View {
     @Bindable var coordinator: AppRootCoordinatorViewModel

@@ -7,6 +7,7 @@
 
 import Foundation
 import Swinject
+import SwiftUIFoundation
 
 @Observable
 class AppRootCoordinatorViewModel: ViewModel {

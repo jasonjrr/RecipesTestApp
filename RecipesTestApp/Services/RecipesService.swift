@@ -22,7 +22,7 @@ actor RecipesService: RecipesServiceProtocol {
     
     func getRecipes() async throws -> [Recipe] {
         let response: NetworkingServiceResponse<RecipeResponse> = try await self.networkingService.async
-            .fetch(from: URLs.emptyRecipes.url, headers: nil, parameters: nil)
+            .fetch(from: URLs.malformedRecipes.url, headers: nil, parameters: nil)
         return response.model.recipes
     }
 }

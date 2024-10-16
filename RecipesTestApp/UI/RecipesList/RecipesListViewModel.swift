@@ -16,6 +16,7 @@ class RecipesListViewModel: ViewModel {
     private weak var delegate: Delegate?
     
     private(set) var recipes: [Recipe] = []
+    private(set) var recipesError: Error?
     
     init(recipesService: RecipesServiceProtocol) {
         self.recipesService = recipesService
@@ -37,7 +38,8 @@ class RecipesListViewModel: ViewModel {
             do {
                 self.recipes = try await recipesService.getRecipes()
             } catch {
-                print(error)
+                self.recipes = []
+                self.recipesError = error
             }
         }
     }

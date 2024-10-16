@@ -14,7 +14,11 @@ struct RecipesListView: View {
     
     var body: some View {
         ScrollView {
-            makeBody()
+            if let _ = self.viewModel.recipesError {
+                makeErrorBody()
+            } else {
+                makeSuccessBody()
+            }
         }
         .background(self.theme.colors.secondaryBackground.color)
         .refreshable {
@@ -22,8 +26,33 @@ struct RecipesListView: View {
         }
     }
     
+    private func makeErrorBody() -> some View {
+        VStack(spacing: 32.0) {
+            Image(systemName: "exclamationmark.octagon")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 120.0, height: 120.0)
+                .foregroundStyle(self.theme.colors.error.color)
+            Text("Something went wrong.")
+                .font(forStyle: .title, weight: .semibold)
+                .foregroundStyle(self.theme.colors.label.color)
+            Text("Please check your internet connection and try again.")
+                .font(forStyle: .body)
+                .foregroundStyle(self.theme.colors.secondaryLabel.color)
+            Button("Refresh") {
+                self.viewModel.refresh()
+            }
+            .font(forStyle: .headline, weight: .bold)
+            .buttonStyle(.borderedProminent)
+        }
+        .multilineTextAlignment(.center)
+        .padding(40.0)
+        .padding(.top, 60.0)
+        .frame(maxWidth: .infinity)
+    }
+    
     @ViewBuilder
-    private func makeBody() -> some View {
+    private func makeSuccessBody() -> some View {
         if self.viewModel.recipes.isEmpty {
             VStack(spacing: 32.0) {
                 Image(systemName: "list.star")
@@ -36,6 +65,11 @@ struct RecipesListView: View {
                 Text("Please check your internet connection and try again.")
                     .font(forStyle: .body)
                     .foregroundStyle(self.theme.colors.secondaryLabel.color)
+                Button("Refresh") {
+                    self.viewModel.refresh()
+                }
+                .font(forStyle: .headline, weight: .bold)
+                .buttonStyle(.borderedProminent)
             }
             .multilineTextAlignment(.center)
             .padding(40.0)

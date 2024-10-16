@@ -32,31 +32,81 @@ struct RecipesListView: View {
 extension RecipesListView {
     struct RecipeCard: View {
         @Environment(Theme.self) private var theme: Theme
+        
+        @ScaledMetric(relativeTo: .title3) var thumbnailSize: CGFloat = 40.0
+        @ScaledMetric private var urlIconSize: CGFloat = 17.0
+        
         let recipe: Recipe
         
         var body: some View {
             VStack(alignment: .leading) {
                 HStack {
                     if let url = URL(string: self.recipe.photoURLSmall) {
-                        AsyncImage(url: url) { image in
-                            image
-                                .resizable()
-                                .scaledToFit()
-                        } placeholder: {
-                            Color.gray
-                        }
-                        .frame(width: 36.0, height: 36.0)
+                        thumbnail(url: url)
                     }
-                    Text(self.recipe.name)
-                        .font(forStyle: .title3, weight: .medium)
-                        .foregroundStyle(self.theme.colors.label.color)
+                    header()
                 }
+                links()
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
             .background {
                 RoundedRectangle(cornerRadius: 16.0, style: .continuous)
                     .fill(self.theme.colors.cardBackground.color)
+            }
+            .compositingGroup()
+        }
+        
+        private func thumbnail(url: URL) -> some View {
+            AsyncImage(url: url) { image in
+                image
+                    .resizable()
+                    .scaledToFit()
+            } placeholder: {
+                Color.gray
+            }
+            .frame(width: self.thumbnailSize, height: self.thumbnailSize)
+            .clipShape(RoundedRectangle(cornerRadius: 8.0, style: .continuous))
+        }
+        
+        private func header() -> some View {
+            VStack(alignment: .leading) {
+                Text(self.recipe.name)
+                    .font(forStyle: .title3, weight: .medium)
+                    .foregroundStyle(self.theme.colors.label.color)
+                Text(self.recipe.cuisine)
+                    .font(forStyle: .subheadline)
+                    .foregroundStyle(self.theme.colors.secondaryLabel.color)
+            }
+        }
+        
+        @ViewBuilder
+        private func links() -> some View {
+            if let url = URL(string: self.recipe.sourceURL ?? .empty) {
+                Link(destination: url) {
+                    Label {
+                        Text("Source")
+                            .font(forStyle: .body)
+                    } icon: {
+                        Image(systemName: "globe")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: self.urlIconSize, height: self.urlIconSize)
+                    }
+                }
+            }
+            if let url = URL(string: self.recipe.youtubeURL ?? .empty) {
+                Link(destination: url) {
+                    Label {
+                        Text("YouTube")
+                            .font(forStyle: .body)
+                    } icon: {
+                        Image(.youtube)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: self.urlIconSize, height: self.urlIconSize)
+                    }
+                }
             }
         }
     }

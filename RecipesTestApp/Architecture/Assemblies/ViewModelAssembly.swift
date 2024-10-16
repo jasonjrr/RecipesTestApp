@@ -11,7 +11,8 @@ import Swinject
 class ViewModelAssembly: Assembly {
     func assemble(container: Container) {
         container.register(RecipesListViewModel.self) { resolver in
-            RecipesListViewModel()
+            RecipesListViewModel(
+                recipesService: resolver.resolve(RecipesServiceProtocol.self)!)
         }.inObjectScope(.transient)
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIDesignSystem
 
 fileprivate let appAssembly = AppAssembler()
 
@@ -15,6 +16,7 @@ struct RecipesTestAppApp: App {
         WindowGroup {
             AppRootCoordinatorView(
                 coordinator: appAssembly.resolver.resolve(AppRootCoordinatorViewModel.self)!)
+            .environment(appAssembly.resolver.resolve(Theme.self)!)
         }
     }
 }

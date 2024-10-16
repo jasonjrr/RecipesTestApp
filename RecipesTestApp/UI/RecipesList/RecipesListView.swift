@@ -14,6 +14,34 @@ struct RecipesListView: View {
     
     var body: some View {
         ScrollView {
+            makeBody()
+        }
+        .background(self.theme.colors.secondaryBackground.color)
+        .refreshable {
+            self.viewModel.refresh()
+        }
+    }
+    
+    @ViewBuilder
+    private func makeBody() -> some View {
+        if self.viewModel.recipes.isEmpty {
+            VStack(spacing: 32.0) {
+                Image(systemName: "list.star")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 120.0, height: 120.0)
+                Text("No recipes found.")
+                    .font(forStyle: .title, weight: .semibold)
+                    .foregroundStyle(self.theme.colors.label.color)
+                Text("Please check your internet connection and try again.")
+                    .font(forStyle: .body)
+                    .foregroundStyle(self.theme.colors.secondaryLabel.color)
+            }
+            .multilineTextAlignment(.center)
+            .padding(40.0)
+            .padding(.top, 60.0)
+            .frame(maxWidth: .infinity)
+        } else {
             LazyVStack {
                 ForEach(self.viewModel.recipes) { recipe in
                     RecipeCard(recipe: recipe)
@@ -21,10 +49,6 @@ struct RecipesListView: View {
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-        }
-        .background(self.theme.colors.secondaryBackground.color)
-        .refreshable {
-            self.viewModel.refresh()
         }
     }
 }

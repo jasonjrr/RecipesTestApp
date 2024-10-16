@@ -77,8 +77,8 @@ struct RecipesListView: View {
             .frame(maxWidth: .infinity)
         } else {
             LazyVStack {
-                ForEach(self.viewModel.recipes) { recipe in
-                    RecipeCard(recipe: recipe)
+                ForEach(self.viewModel.recipes) { 
+                    RecipeCard(viewModel: $0)
                         .padding(.horizontal)
                 }
             }
@@ -94,13 +94,15 @@ extension RecipesListView {
         @ScaledMetric(relativeTo: .title3) var thumbnailSize: CGFloat = 40.0
         @ScaledMetric private var urlIconSize: CGFloat = 17.0
         
-        let recipe: Recipe
+        @Bindable var viewModel: RecipesListViewModel.RecipeViewModel
         
         var body: some View {
             VStack(alignment: .leading) {
                 HStack {
-                    if let url = URL(string: self.recipe.photoURLSmall) {
+                    if let url = URL(string: self.viewModel.recipe.photoURLSmall) {
                         thumbnail(url: url)
+                            .frame(width: self.thumbnailSize, height: self.thumbnailSize)
+                            .clipShape(RoundedRectangle(cornerRadius: 8.0, style: .continuous))
                     }
                     header()
                 }
@@ -115,24 +117,23 @@ extension RecipesListView {
             .compositingGroup()
         }
         
+        @ViewBuilder
         private func thumbnail(url: URL) -> some View {
-            AsyncImage(url: url) { image in
-                image
+            if let thumbnail = self.viewModel.thumbnailImage {
+                Image(uiImage: thumbnail)
                     .resizable()
                     .scaledToFit()
-            } placeholder: {
-                Color.gray
+            } else {
+                self.theme.colors.separator.color
             }
-            .frame(width: self.thumbnailSize, height: self.thumbnailSize)
-            .clipShape(RoundedRectangle(cornerRadius: 8.0, style: .continuous))
         }
         
         private func header() -> some View {
             VStack(alignment: .leading) {
-                Text(self.recipe.name)
+                Text(self.viewModel.recipe.name)
                     .font(forStyle: .title3, weight: .medium)
                     .foregroundStyle(self.theme.colors.label.color)
-                Text(self.recipe.cuisine)
+                Text(self.viewModel.recipe.cuisine)
                     .font(forStyle: .subheadline)
                     .foregroundStyle(self.theme.colors.secondaryLabel.color)
             }
@@ -140,7 +141,7 @@ extension RecipesListView {
         
         @ViewBuilder
         private func links() -> some View {
-            if let url = URL(string: self.recipe.sourceURL ?? .empty) {
+            if let url = URL(string: self.viewModel.recipe.sourceURL ?? .empty) {
                 Link(destination: url) {
                     Label {
                         Text("Source")
@@ -153,7 +154,7 @@ extension RecipesListView {
                     }
                 }
             }
-            if let url = URL(string: self.recipe.youtubeURL ?? .empty) {
+            if let url = URL(string: self.viewModel.recipe.youtubeURL ?? .empty) {
                 Link(destination: url) {
                     Label {
                         Text("YouTube")

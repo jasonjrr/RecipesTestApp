@@ -32,6 +32,8 @@
 		6FE2362A2CC0474800D79206 /* RecipesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE236292CC0474800D79206 /* RecipesService.swift */; };
 		6FE2362C2CC0485200D79206 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2362B2CC0485200D79206 /* Recipe.swift */; };
 		6FE2362E2CC04ACE00D79206 /* RecipeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2362D2CC04ACE00D79206 /* RecipeResponse.swift */; };
+		6FE236312CC05D9D00D79206 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6FE236302CC05D9D00D79206 /* SDWebImageSwiftUI */; };
+		6FE236332CC05DFC00D79206 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE236322CC05DFC00D79206 /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,7 @@
 		6FE236292CC0474800D79206 /* RecipesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesService.swift; sourceTree = "<group>"; };
 		6FE2362B2CC0485200D79206 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		6FE2362D2CC04ACE00D79206 /* RecipeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeResponse.swift; sourceTree = "<group>"; };
+		6FE236322CC05DFC00D79206 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FE236312CC05D9D00D79206 /* SDWebImageSwiftUI in Frameworks */,
 				6FE236002CC03B3F00D79206 /* CombineExt in Frameworks */,
 				6FE235FD2CC03B2B00D79206 /* Swinject in Frameworks */,
 				6FE236252CC045A300D79206 /* SwiftUIDesignSystem in Frameworks */,
@@ -190,6 +194,7 @@
 		6FE236032CC03BBC00D79206 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				6FE236322CC05DFC00D79206 /* ImageCache.swift */,
 				6FE236292CC0474800D79206 /* RecipesService.swift */,
 			);
 			path = Services;
@@ -270,6 +275,7 @@
 				6FE236222CC045A300D79206 /* SUIFTelemetry */,
 				6FE236242CC045A300D79206 /* SwiftUIDesignSystem */,
 				6FE236262CC045A300D79206 /* SwiftUIFoundation */,
+				6FE236302CC05D9D00D79206 /* SDWebImageSwiftUI */,
 			);
 			productName = RecipesTestApp;
 			productReference = 6FCAC0BA2CC039DA0001B41D /* RecipesTestApp.app */;
@@ -347,6 +353,7 @@
 				6FE235FB2CC03B2B00D79206 /* XCRemoteSwiftPackageReference "Swinject" */,
 				6FE235FE2CC03B3F00D79206 /* XCRemoteSwiftPackageReference "CombineExt" */,
 				6FE2361F2CC045A300D79206 /* XCRemoteSwiftPackageReference "SwiftUI" */,
+				6FE2362F2CC05D9D00D79206 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 6FCAC0BB2CC039DA0001B41D /* Products */;
 			projectDirPath = "";
@@ -390,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FE236332CC05DFC00D79206 /* ImageCache.swift in Sources */,
 				6FE236112CC03D5600D79206 /* ViewModelAssembly.swift in Sources */,
 				6FCAC0C02CC039DA0001B41D /* ContentView.swift in Sources */,
 				6FE236192CC03EDB00D79206 /* RecipesListView.swift in Sources */,
@@ -761,6 +769,14 @@
 				revision = 628a694c78493fef77dbb233781614837cbfa2ca;
 			};
 		};
+		6FE2362F2CC05D9D00D79206 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = exactVersion;
+				version = 3.1.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -793,6 +809,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6FE2361F2CC045A300D79206 /* XCRemoteSwiftPackageReference "SwiftUI" */;
 			productName = SwiftUIFoundation;
+		};
+		6FE236302CC05D9D00D79206 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6FE2362F2CC05D9D00D79206 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

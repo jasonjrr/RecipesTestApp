@@ -12,6 +12,10 @@ import SwiftUIDesignSystem
 
 class ServicesAssembly: Assembly {
     func assemble(container: Container) {
+        container.register(ImageCacheProtocol.self) { _ in
+            ImageCache()
+        }.inObjectScope(.container)
+        
         container.register((any NetworkingServiceProtocol).self) { _ in
             // Provide a nil imageURLCache, because we want to cache to disk
             NetworkingService(imageURLCache: nil)
@@ -19,6 +23,7 @@ class ServicesAssembly: Assembly {
         
         container.register(RecipesServiceProtocol.self) { resolver in
             RecipesService(
+                imageCache: resolver.resolve(ImageCacheProtocol.self)!,
                 networkingService: resolver.resolve((any NetworkingServiceProtocol).self)!)
         }.inObjectScope(.container)
         

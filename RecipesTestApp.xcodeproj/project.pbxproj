@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F2321372CC09BB4009B72E1 /* RecipesListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2321362CC09BB4009B72E1 /* RecipesListViewModelTests.swift */; };
+		6F2321392CC09C31009B72E1 /* MockRecipesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2321382CC09C31009B72E1 /* MockRecipesService.swift */; };
+		6F23213B2CC0A10D009B72E1 /* Recipe+Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F23213A2CC0A10D009B72E1 /* Recipe+Mocks.swift */; };
+		6F23213D2CC0D29E009B72E1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6F23213C2CC0D29E009B72E1 /* README.md */; };
 		6FCAC0BE2CC039DA0001B41D /* RecipesTestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCAC0BD2CC039DA0001B41D /* RecipesTestAppApp.swift */; };
 		6FCAC0C22CC039DB0001B41D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FCAC0C12CC039DB0001B41D /* Assets.xcassets */; };
 		6FCAC0C52CC039DB0001B41D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FCAC0C42CC039DB0001B41D /* Preview Assets.xcassets */; };
 		6FCAC0CF2CC039DB0001B41D /* RecipesTestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCAC0CE2CC039DB0001B41D /* RecipesTestAppTests.swift */; };
-		6FCAC0D92CC039DB0001B41D /* RecipesTestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCAC0D82CC039DB0001B41D /* RecipesTestAppUITests.swift */; };
 		6FE235FD2CC03B2B00D79206 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 6FE235FC2CC03B2B00D79206 /* Swinject */; };
-		6FE236002CC03B3F00D79206 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 6FE235FF2CC03B3F00D79206 /* CombineExt */; };
 		6FE2360B2CC03CD300D79206 /* AppAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2360A2CC03CD300D79206 /* AppAssembler.swift */; };
 		6FE2360D2CC03D2000D79206 /* NavigationCoordinatorsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2360C2CC03D2000D79206 /* NavigationCoordinatorsAssembly.swift */; };
 		6FE2360F2CC03D4200D79206 /* ServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE2360E2CC03D4200D79206 /* ServicesAssembly.swift */; };
@@ -56,6 +58,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6F2321362CC09BB4009B72E1 /* RecipesListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesListViewModelTests.swift; sourceTree = "<group>"; };
+		6F2321382CC09C31009B72E1 /* MockRecipesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRecipesService.swift; sourceTree = "<group>"; };
+		6F23213A2CC0A10D009B72E1 /* Recipe+Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+Mocks.swift"; sourceTree = "<group>"; };
+		6F23213C2CC0D29E009B72E1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6FCAC0BA2CC039DA0001B41D /* RecipesTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipesTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FCAC0BD2CC039DA0001B41D /* RecipesTestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTestAppApp.swift; sourceTree = "<group>"; };
 		6FCAC0C12CC039DB0001B41D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,7 +69,6 @@
 		6FCAC0CA2CC039DB0001B41D /* RecipesTestAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipesTestAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FCAC0CE2CC039DB0001B41D /* RecipesTestAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTestAppTests.swift; sourceTree = "<group>"; };
 		6FCAC0D42CC039DB0001B41D /* RecipesTestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipesTestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6FCAC0D82CC039DB0001B41D /* RecipesTestAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTestAppUITests.swift; sourceTree = "<group>"; };
 		6FE2360A2CC03CD300D79206 /* AppAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembler.swift; sourceTree = "<group>"; };
 		6FE2360C2CC03D2000D79206 /* NavigationCoordinatorsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinatorsAssembly.swift; sourceTree = "<group>"; };
 		6FE2360E2CC03D4200D79206 /* ServicesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesAssembly.swift; sourceTree = "<group>"; };
@@ -90,7 +95,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FE236312CC05D9D00D79206 /* SDWebImageSwiftUI in Frameworks */,
-				6FE236002CC03B3F00D79206 /* CombineExt in Frameworks */,
 				6FE235FD2CC03B2B00D79206 /* Swinject in Frameworks */,
 				6FE236252CC045A300D79206 /* SwiftUIDesignSystem in Frameworks */,
 				6FE236272CC045A300D79206 /* SwiftUIFoundation in Frameworks */,
@@ -119,10 +123,10 @@
 		6FCAC0B12CC039DA0001B41D = {
 			isa = PBXGroup;
 			children = (
+				6F23213C2CC0D29E009B72E1 /* README.md */,
 				6FE2363F2CC0771E00D79206 /* RecipesTestApp.xctestplan */,
 				6FCAC0BC2CC039DA0001B41D /* RecipesTestApp */,
 				6FCAC0CD2CC039DB0001B41D /* RecipesTestAppTests */,
-				6FCAC0D72CC039DB0001B41D /* RecipesTestAppUITests */,
 				6FCAC0BB2CC039DA0001B41D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -164,17 +168,10 @@
 			children = (
 				6FE2363A2CC06F7400D79206 /* _MOCKS */,
 				6FE236342CC06BCC00D79206 /* Services */,
+				6FE236402CC07D5400D79206 /* UI */,
 				6FCAC0CE2CC039DB0001B41D /* RecipesTestAppTests.swift */,
 			);
 			path = RecipesTestAppTests;
-			sourceTree = "<group>";
-		};
-		6FCAC0D72CC039DB0001B41D /* RecipesTestAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				6FCAC0D82CC039DB0001B41D /* RecipesTestAppUITests.swift */,
-			);
-			path = RecipesTestAppUITests;
 			sourceTree = "<group>";
 		};
 		6FE236012CC03BA800D79206 /* Architecture */ = {
@@ -264,8 +261,18 @@
 			children = (
 				6FE2363B2CC06F8500D79206 /* MockImageCache.swift */,
 				6FE2363D2CC0711200D79206 /* MockNetworkingService.swift */,
+				6F2321382CC09C31009B72E1 /* MockRecipesService.swift */,
+				6F23213A2CC0A10D009B72E1 /* Recipe+Mocks.swift */,
 			);
 			path = _MOCKS;
+			sourceTree = "<group>";
+		};
+		6FE236402CC07D5400D79206 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				6F2321362CC09BB4009B72E1 /* RecipesListViewModelTests.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,7 +293,6 @@
 			name = RecipesTestApp;
 			packageProductDependencies = (
 				6FE235FC2CC03B2B00D79206 /* Swinject */,
-				6FE235FF2CC03B3F00D79206 /* CombineExt */,
 				6FE236202CC045A300D79206 /* SUIFNetworking */,
 				6FE236222CC045A300D79206 /* SUIFTelemetry */,
 				6FE236242CC045A300D79206 /* SwiftUIDesignSystem */,
@@ -367,7 +373,6 @@
 			mainGroup = 6FCAC0B12CC039DA0001B41D;
 			packageReferences = (
 				6FE235FB2CC03B2B00D79206 /* XCRemoteSwiftPackageReference "Swinject" */,
-				6FE235FE2CC03B3F00D79206 /* XCRemoteSwiftPackageReference "CombineExt" */,
 				6FE2361F2CC045A300D79206 /* XCRemoteSwiftPackageReference "SwiftUI" */,
 				6FE2362F2CC05D9D00D79206 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
@@ -396,6 +401,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F23213D2CC0D29E009B72E1 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,9 +441,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FE2363C2CC06F8500D79206 /* MockImageCache.swift in Sources */,
+				6F2321392CC09C31009B72E1 /* MockRecipesService.swift in Sources */,
 				6FE236392CC06F3600D79206 /* RecipesServiceTests.swift in Sources */,
 				6FE236372CC06BEF00D79206 /* ImageCacheTests.swift in Sources */,
 				6FE2363E2CC0711200D79206 /* MockNetworkingService.swift in Sources */,
+				6F23213B2CC0A10D009B72E1 /* Recipe+Mocks.swift in Sources */,
+				6F2321372CC09BB4009B72E1 /* RecipesListViewModelTests.swift in Sources */,
 				6FCAC0CF2CC039DB0001B41D /* RecipesTestAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,7 +455,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FCAC0D92CC039DB0001B41D /* RecipesTestAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,14 +779,6 @@
 				version = 2.9.1;
 			};
 		};
-		6FE235FE2CC03B3F00D79206 /* XCRemoteSwiftPackageReference "CombineExt" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/CombineCommunity/CombineExt";
-			requirement = {
-				kind = exactVersion;
-				version = 1.8.1;
-			};
-		};
 		6FE2361F2CC045A300D79206 /* XCRemoteSwiftPackageReference "SwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jasonjrr/SwiftUI.Foundations";
@@ -802,11 +802,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6FE235FB2CC03B2B00D79206 /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
-		};
-		6FE235FF2CC03B3F00D79206 /* CombineExt */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6FE235FE2CC03B3F00D79206 /* XCRemoteSwiftPackageReference "CombineExt" */;
-			productName = CombineExt;
 		};
 		6FE236202CC045A300D79206 /* SUIFNetworking */ = {
 			isa = XCSwiftPackageProductDependency;

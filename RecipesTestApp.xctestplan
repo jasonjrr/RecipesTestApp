@@ -23,15 +23,6 @@
         "identifier" : "6FCAC0C92CC039DB0001B41D",
         "name" : "RecipesTestAppTests"
       }
-    },
-    {
-      "enabled" : false,
-      "parallelizable" : true,
-      "target" : {
-        "containerPath" : "container:RecipesTestApp.xcodeproj",
-        "identifier" : "6FCAC0D32CC039DB0001B41D",
-        "name" : "RecipesTestAppUITests"
-      }
     }
   ],
   "version" : 1

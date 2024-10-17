@@ -31,52 +31,7 @@ class RecipesServiceTest: XCTestCase {
 }
 
 class RecipesService_when_getRecipes_returns_results: RecipesServiceTest {
-    let mockRecipes: [Recipe] = [
-        Recipe(
-            id: "1",
-            name: "Spaghetti Carbonara",
-            cuisine: "Italian",
-            photoURLLarge: "https://example.com/spaghetti_carbonara_large.jpg",
-            photoURLSmall: "https://example.com/spaghetti_carbonara_small.jpg",
-            sourceURL: "https://example.com/spaghetti_carbonara_recipe",
-            youtubeURL: "https://www.youtube.com/watch?v=spaghetti_carbonara_video"),
-        
-        Recipe(
-            id: "2",
-            name: "Chicken Tikka Masala",
-            cuisine: "Indian",
-            photoURLLarge: "https://example.com/chicken_tikka_masala_large.jpg",
-            photoURLSmall: "https://example.com/chicken_tikka_masala_small.jpg",
-            sourceURL: "https://example.com/chicken_tikka_masala_recipe",
-            youtubeURL: "https://www.youtube.com/watch?v=chicken_tikka_masala_video"),
-        
-        Recipe(
-            id: "3",
-            name: "Sushi Rolls",
-            cuisine: "Japanese",
-            photoURLLarge: "https://example.com/sushi_rolls_large.jpg",
-            photoURLSmall: "https://example.com/sushi_rolls_small.jpg",
-            sourceURL: "https://example.com/sushi_rolls_recipe",
-            youtubeURL: "https://www.youtube.com/watch?v=sushi_rolls_video"),
-        
-        Recipe(
-            id: "4",
-            name: "Beef Tacos",
-            cuisine: "Mexican",
-            photoURLLarge: "https://example.com/beef_tacos_large.jpg",
-            photoURLSmall: "https://example.com/beef_tacos_small.jpg",
-            sourceURL: "https://example.com/beef_tacos_recipe",
-            youtubeURL: "https://www.youtube.com/watch?v=beef_tacos_video"),
-        
-        Recipe(
-            id: "5",
-            name: "Mushroom Risotto",
-            cuisine: "Italian",
-            photoURLLarge: "https://example.com/mushroom_risotto_large.jpg",
-            photoURLSmall: "https://example.com/mushroom_risotto_small.jpg",
-            sourceURL: "https://example.com/mushroom_risotto_recipe",
-            youtubeURL: "https://www.youtube.com/watch?v=mushroom_risotto_video")
-    ]
+    let mockRecipes: [Recipe] = Recipe.mockData
     
     override func configureMocks() {
         self.networkingService.fetchFromURLOutputResult = .success(RecipeResponse(recipes: self.mockRecipes))
@@ -95,7 +50,7 @@ class RecipesService_when_getRecipes_throws_error: RecipesServiceTest {
     
     func test_then_expected_results_are_returned() async {
         do {
-            let recipes = try await self.recipesService.getRecipes()
+            let _ = try await self.recipesService.getRecipes()
             XCTFail()
         } catch {
             XCTAssertEqual(error as? URLError, URLError(.unknown))
@@ -122,6 +77,7 @@ class RecipesService_when_image_cannot_be_fetched: RecipesServiceTest {
 
 class RecipesService_when_image_does_no_exist_in_cache: RecipesServiceTest {
     var imageCacheImageCallCount: Int = 0
+    var imageCacheCacheCallCount: Int = 0
     var networkingServiceFetchImageFromURLCallCount: Int = 0
     
     var actual: UIImage?
@@ -142,6 +98,10 @@ class RecipesService_when_image_does_no_exist_in_cache: RecipesServiceTest {
             self.imageCacheImageCallCount += 1
             return nil
         }
+        
+        self.imageCache.mock_cacheTestClosure = { _, _, _ in
+            self.imageCacheCacheCallCount += 1
+        }
     }
     
     override func setUp() async throws {
@@ -159,5 +119,9 @@ class RecipesService_when_image_does_no_exist_in_cache: RecipesServiceTest {
     
     func test_imageCache_image_is_called_once() {
         XCTAssertEqual(self.imageCacheImageCallCount, 1)
+    }
+    
+    func test_imageCache_cache_is_called_once() {
+        XCTAssertEqual(self.imageCacheCacheCallCount, 1)
     }
 }

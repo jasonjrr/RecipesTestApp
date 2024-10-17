@@ -12,16 +12,26 @@ struct RecipesListView: View {
     @Environment(Theme.self) private var theme: Theme
     @Bindable var viewModel: RecipesListViewModel
     
+    @State private var isFirstLoad: Bool = true
+    
     var body: some View {
         ScrollView {
-            if let _ = self.viewModel.recipesError {
+            switch self.viewModel.recipes {
+            case .success(let recipes):
+                makeSuccessBody(recipes: recipes)
+            case .failure(_):
                 makeErrorBody()
-            } else {
-                makeSuccessBody()
             }
         }
         .background(self.theme.colors.secondaryBackground.color)
         .refreshable {
+            self.viewModel.refresh()
+        }
+        .onAppear {
+            guard self.isFirstLoad else {
+                return
+            }
+            self.isFirstLoad = false
             self.viewModel.refresh()
         }
     }
@@ -52,8 +62,8 @@ struct RecipesListView: View {
     }
     
     @ViewBuilder
-    private func makeSuccessBody() -> some View {
-        if self.viewModel.recipes.isEmpty {
+    private func makeSuccessBody(recipes: [RecipesListViewModel.RecipeViewModel]) -> some View {
+        if recipes.isEmpty {
             VStack(spacing: 32.0) {
                 Image(systemName: "list.star")
                     .resizable()
@@ -77,7 +87,7 @@ struct RecipesListView: View {
             .frame(maxWidth: .infinity)
         } else {
             LazyVStack {
-                ForEach(self.viewModel.recipes) { 
+                ForEach(recipes) { 
                     RecipeCard(viewModel: $0)
                         .padding(.horizontal)
                 }

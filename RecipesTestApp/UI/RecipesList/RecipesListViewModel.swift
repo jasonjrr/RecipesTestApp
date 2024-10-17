@@ -11,20 +11,15 @@ import UIKit.UIImage
 @Observable
 class RecipesListViewModel: ViewModel {
     @ObservationIgnored
-    private let imageCache: ImageCacheProtocol
-    @ObservationIgnored
     private let recipesService: RecipesServiceProtocol
     
     @ObservationIgnored
-    private weak var delegate: Delegate?
+    private(set) weak var delegate: Delegate?
     
-    private(set) var recipes: [RecipeViewModel] = []
-    private(set) var recipesError: Error?
+    private(set) var recipes: Result<[RecipeViewModel], Error> = .success([])
     
-    init(imageCache: ImageCacheProtocol, recipesService: RecipesServiceProtocol) {
-        self.imageCache = imageCache
+    init(recipesService: RecipesServiceProtocol) {
         self.recipesService = recipesService
-        fetchRecipes()
     }
     
     @discardableResult
@@ -34,19 +29,15 @@ class RecipesListViewModel: ViewModel {
     }
     
     func refresh() {
-        fetchRecipes()
-    }
-    
-    private func fetchRecipes() {
         Task {
             do {
-                self.recipes = try await recipesService.getRecipes()
+                let recipes = try await recipesService.getRecipes()
                     .map {
                         RecipeViewModel(recipesService: self.recipesService, recipe: $0)
                     }
+                self.recipes = .success(recipes)
             } catch {
-                self.recipes = []
-                self.recipesError = error
+                self.recipes = .failure(error)
             }
         }
     }
